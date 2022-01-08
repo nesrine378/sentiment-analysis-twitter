@@ -13,25 +13,25 @@ from pyspark.sql.types import *
 
 es = Elasticsearch(hosts=['localhost'], port=9200)
 
-def process(time, rdd):
-    print("========= %s =========" % str(time))
-    try:
-        if rdd.count()==0: raise Exception('Empty')
-        sqlContext = getSqlContextInstance(rdd.context)
-        df = sqlContext.read.json(rdd)
-        df = df.filter("text not like 'RT @%'")
-        if df.count() == 0: raise Exception('Empty')
-        udf_func = udf(lambda x: dosentiment(x),returnType=StringType())
-        df = df.withColumn("sentiment",lit(udf_func(df.text)))
-        print(df.take(10))
-        results = df.toJSON().map(lambda j: json.loads(j)).collect()
-        for result in results:
-            result["date"]= datetime.strptime(result["date"],"%Y-%m-%d %H:%M:%S")
-            result["sentiment"]=json.loads(result["sentiment"])
-        sth2elastic(results,"tweets","doc")
-    except Exception as e:
-        print(e)
-        pass
+#def process(time, rdd):
+    #print("========= %s =========" % str(time))
+    #try:
+       # if rdd.count()==0: raise Exception('Empty')
+        #sqlContext = getSqlContextInstance(rdd.context)
+        #df = sqlContext.read.json(rdd)
+        #df = df.filter("text not like 'RT @%'")
+        #if df.count() == 0: raise Exception('Empty')
+        #udf_func = udf(lambda x: dosentiment(x),returnType=StringType())
+        #df = df.withColumn("sentiment",lit(udf_func(df.text)))
+        #print(df.take(10))
+        #results = df.toJSON().map(lambda j: json.loads(j)).collect()
+        #for result in results:
+            #result["date"]= datetime.strptime(result["date"],"%Y-%m-%d %H:%M:%S")
+            #result["sentiment"]=json.loads(result["sentiment"])
+        #sth2elastic(results,"tweets","doc")
+    #except Exception as e:
+        #print(e)
+        #pass
 
 
 def main():
