@@ -37,7 +37,7 @@ You can point http://localhost:9200 to check if it's running.
 
 5. Kibana
 Kibana is a visualization tool that can explore the data stored in elasticsearch. In the project, instead of directly output the result, visualization tool is used to show the tweets sentiment classification result in a real-time manner. 
-![github-logo](https://github.com/nesrine378/sentiment-analysis-twitter/blob/main/dashboard.png )
+
 
 ## How to Run Application
 Start Zookeeper server by moving into the bin folder of Zookeeper installed directory by using:
@@ -57,6 +57,9 @@ Start kibanna
 
 $ Start kibanna 
 
+## Final result
+
+![github-logo](https://github.com/nesrine378/sentiment-analysis-twitter/blob/main/dashboard.png )
 
 
 
