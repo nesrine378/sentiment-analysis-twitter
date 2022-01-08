@@ -1,7 +1,9 @@
 # Twitterstream Sentiment-Analysis with Kafka, Spark , Elasticsearch & kibanna
 Reading the Twitterstream from the Twitter-API with Kafka and stream them into a Spark-Cluster to process it by doing SENTIMENT analysis of hash tags in twitter data in real-time. For example, we want to do the sentiment analysis for all the tweets  #coronavirus
 
-![github-logo](https://github.com/nesrine378/sentiment-analysis-twitter/blob/main/dashboard.png )
+## Pipeline
+![github-logo](https://github.com/nesrine378/sentiment-analysis-twitter/blob/main/pipeline.PNG )
+
 ## Things you need
 - Installed  Kafka
 - Installed Apache Spark
@@ -37,7 +39,7 @@ You can point http://localhost:9200 to check if it's running.
 Kibana is a visualization tool that can explore the data stored in elasticsearch. In the project, instead of directly output the result, visualization tool is used to show the tweets sentiment classification result in a real-time manner. 
 ![github-logo](https://github.com/nesrine378/sentiment-analysis-twitter/blob/main/dashboard.png )
 
-# How to Run Application
+## How to Run Application
 Start Zookeeper server by moving into the bin folder of Zookeeper installed directory by using:
 
 $ ./bin/zookeeper-server-start.sh ./config/zookeeper.properties
