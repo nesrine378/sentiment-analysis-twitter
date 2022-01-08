@@ -44,22 +44,22 @@ Kibana is a visualization tool that can explore the data stored in elasticsearch
 ## How to Run Application
 Start Zookeeper server by moving into the bin folder of Zookeeper installed directory by using:
 
-$ ./bin/zookeeper-server-start.sh ./config/zookeeper.properties
+`$ ./bin/zookeeper-server-start.sh ./config/zookeeper.properties`
 
 Start Kafka server by moving into the bin folder of Kafka installed directory by using:
 
-$ ./kafka-server-start.sh ../config/server.properties
+`$ ./kafka-server-start.sh ../config/server.properties`
 Start elasticsearch
 
-$ Start elasticsearch
+`$ Start elasticsearch`
 
-$ python streamconsumer.py
+`$ python streamconsumer.py`
 
-$ python streamproducer.py 
+`$ python streamproducer.py `
 
 Start kibanna 
 
-$ Start kibanna 
+`$ Start kibanna` 
 
 ## Final result
 
