@@ -14,6 +14,6 @@ Tweepy (And your own pair of API Keys from Twitter)
 Kafka-Python
 Pyspark
 Elasticsearch
-NLTK with VADER
+textblob
 
 
