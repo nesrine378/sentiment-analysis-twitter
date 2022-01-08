@@ -1,6 +1,5 @@
 # Twitterstream Sentiment-Analysis with Kafka, Spark , Elasticsearch & kibanna
-Reading the Twitterstream from the Twitter-API with Kafka and stream them into a Spark-Cluster to process it by doing SENTIMENT analysis of hash tags in twitter data in real-time. 
-For example, we want to do the sentiment analysis for all the tweets  #coronavirus
+Reading the Twitterstream from the Twitter-API with Kafka and stream them into a Spark-Cluster to process it by doing SENTIMENT analysis of hash tags in twitter data in real-time. For example, we want to do the sentiment analysis for all the tweets  #coronavirus
 
 ![github-logo](https://github.com/alandtsang/README/blob/master/images/github-logo.png "Optional title")
 ## Things you need
@@ -14,15 +13,16 @@ For example, we want to do the sentiment analysis for all the tweets  #coronavir
 - Kafka-Python
 - Pyspark
 - Elasticsearch
+- NLTK
 - textblob
+## Steps
 
-
-1. Scrapper
-The scrapper collects all tweets and sends them to Kafka for analytics. The scraper is a standalone program written in PYTHON and performs the followings:
+1. Twitter Api
+ collecting tweets and sends them to Kafka for analytics. The scraper is a standalone program written in PYTHON and performs the followings:
 
 a. Collects tweets in real-time with particular hash tags. For example, we
 
-will collect all tweets with #trump, #coronavirus.
+will collect all tweets with #coronavirus.
 
 b. After filtering, it send them to Kafka 
 
@@ -34,31 +34,16 @@ You need to install Kafka and run Kafka Server with Zookeeper. You should create
 In Spark Streaming, Kafka consumer is created that periodically collect filtered tweets from scrapper. For each hash tag, perform sentiment analysis using Sentiment Analyzing tool.
 
 4. Sentiment Analyzer
-Sentiment Analysis is the process of determining whether a piece of writing is positive, negative, or neutral. It is also known as opinion mining, deriving the opinion or attitude of a speaker.
+Sentiment Analysis is the process of determining whether a piece of writing is positive, negative, or neutral. 
 
-For example,
 
-"President Donald Trump approaches his first big test this week from a position of unusual weakness."
-
-has positive sentiment.
-"Trump has the lowest standing in public opinion of any new president in modern history."
-
-has neutral sentiment.
-"Trump has displayed little interest in the policy itself, casting it as a thankless chore to be done before getting to tax-cut legislation he values more."
-
-has negative sentiment.
-The above examples are taken from CNBC news: http://www.cnbc.com/2017/03/22/trumps-first-big-test-comes-as-hes-in-an-unusual-position-of-weakness.html
-
-nltk python library is used third for sentiment analyzing.
 
 4. Elasticsearch
 You need to install the Elasticsearch and run it to store the tweets and their sentiment information for further visualization purpose.
 
 You can point http://localhost:9200 to check if it's running.
 
-For further information, you can refer:
 
-https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started.html
 
 5. Kibana
 Kibana is a visualization tool that can explore the data stored in elasticsearch. In the project, instead of directly output the result, visualization tool is used to show the tweets sentiment classification result in a real-time manner. 
